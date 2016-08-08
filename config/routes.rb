@@ -21,9 +21,19 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
+
   namespace :admin do
     resources :products
-    resources :orders
+  end
+  namespace :admin do
+    resources :orders do
+      member do
+        post :cancel
+        post :ship
+        post :shipped
+        post :return
+      end
+    end
     resources :users do
       member do
         post :to_admin
