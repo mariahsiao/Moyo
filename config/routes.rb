@@ -2,8 +2,11 @@ Rails.application.routes.draw do
 
   root "products#index"
 
-  resources :items, controller: "cart_items"
+  namespace :account do
+    resources :orders
+  end
 
+  resources :items, controller: "cart_items"
   resources :orders do
     member do
       get :pay_with_credit_card
