@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
 
+  root "products#index"
+
+  resources :items, controller: "cart_items"
+
   resources :orders do
     member do
       get :pay_with_credit_card
     end
   end
-
-  root "products#index"
 
   resources :carts do
     collection do
