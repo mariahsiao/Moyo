@@ -17,10 +17,10 @@ class Admin::ProductsController < ApplicationController
   def edit
     @product = Product.find(params[:id])
 
-    if @product.photo_present?
+    if @product.photo.present?
       @photo = @product.photo
     else
-      @photo = @photo.build_photo
+      @photo = @product.build_photo
     end
   end
 

@@ -34,7 +34,7 @@ class Admin::OrdersController < ApplicationController
 
   def return
     @order = Order.find(params[:id])
-    @order.return_good!
+    @order.returned_good!
     redirect_to :back
   end
 end
