@@ -45,4 +45,5 @@ Rails.application.configure do
   config.after_initialize do
     Pay2go.integration_mode = :development
   end
+
 end
