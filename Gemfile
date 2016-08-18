@@ -13,6 +13,12 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+gem "pry"
+
+gem "pry-nav"
+
+gem "better_errors"
+
 gem "devise"
 
 gem "bootstrap-sass"
@@ -35,7 +41,7 @@ gem "pay2go"
 
 gem "figaro"
 
-gem "fog"
+gem 'fog', '~> 1.38'
 
 gem "delayed_job_active_record"
 # Use jquery as the JavaScript library
