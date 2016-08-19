@@ -1,4 +1,10 @@
 zh-TW:
+  activerecord:
+    models:
+      user: "User"
+    attributes:
+      email: "Email"
+
   orders:
     order_state:
       order_placed: 已下單
