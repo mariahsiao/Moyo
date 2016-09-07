@@ -1,0 +1,47 @@
+<div class="side-menu-btn">
+  <ul>
+    <li class="cart">
+      <%= link_to carts_path do %>
+        <i class="fa fa-shopping-cart"></i>
+          <div class="cart-notification-wrap">
+            <span class="cart-notification">
+              <%= render_cart_items_count(current_cart) %>
+            </span>
+          </div>
+      <% end %>
+    </li>
+    <li class= "nav-bar-icon">
+      <a class="menu-siderbar-list-icon" class="nav-bar-icon"><span></span></a>
+        <% if !current_user %>
+          <li> <%= link_to("登入", new_user_session_path) %> </li>
+        <% else %>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" ></a>
+            Hi, <%= current_user.name %>
+              <span class="caret"></span>
+
+            <ul class="dropdown-menu" role="menu" >
+
+              <% if current_user.admin? %>
+                <li>
+                  <%= link_to("管理者選單", admin_products_path) %>
+                </li>
+              <% end %>
+
+              <li>
+                <%= link_to("個人訂單列表", account_orders_path) %>
+              </li>
+              <li>
+                <%= link_to("帳號設定", edit_user_registration_path) %>
+              </li>
+              <li>
+                <%= link_to("登出", destroy_user_session_path, method: :delete ) %>
+              </li>
+
+            </ul>
+          </li>
+        <% end %>
+
+    </li>
+  </ul>
+</div>

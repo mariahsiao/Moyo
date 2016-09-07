@@ -1,3 +1,84 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/* Shop   --------------------------------------------------------- */
+/* ----------------------------------------------------------------------*/
+.shop-item {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+    .shop-item .item-mask .item-mask-detail {
+        display: flex;
+        display: -webkit-flex;
+        height: 100%;
+        width: 100%;
+    }
+
+        .shop-item .item-mask .item-mask-detail .item-mask-detail-ele {
+            margin: auto auto;
+        }
+
+.item-img {
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+.shop-item-info {
+    margin-top: 20px;
+    text-align: center;
+}
+
+    .shop-item-info a:hover, .shop-item-info a:hover h5, .shop-item-info a:hover h6, .shop-item-name:hover {
+        color: #e6ae49;
+        transition: all 0.25s ease 0s;
+        -moz-transition: all 0.25s ease 0s;
+        -webkit-transition: all 0.25s ease 0s;
+        -o-transition: all 0.25s ease 0s;
+    }
+
+    .shop-item-info .shop-item-name {
+        margin-bottom: 5px;
+    }
+
+    .shop-item-info .shop-item-price {
+        font-size: 15px;
+        color: #888;
+    }
+
+        .shop-item-info .shop-item-price del, .shop-detail-info del, .sidebar-widget del {
+            margin-right: 10px;
+            color: #bbb;
+            font-weight: 400;
+        }
+
+.shop-filter {
+    display: inline-table;
+    width: 100%;
+}
+/* Shop Detail*/
+.shop-detail-item {
+    position: relative;
+}
+
+.shop-detail-info h4 {
+    line-height: 26px;
+}
+
+.shop-detail-info .shop-item-price {
+    font-size: 20px;
+    color: #e6ae49;
+    font-weight: 600;
+}
+
+.shop-Cart-totalbox {
+    max-width: 450px;
+}
+
+.shop-Cart-totalprice {
+    font-size: 18px;
+}
+
+/* =============================================================================================================================*/

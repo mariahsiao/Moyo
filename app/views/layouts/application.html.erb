@@ -1,17 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Moyo</title>
+  <meta charset="utf-8" />
+  <title>MOYO - Good friend of your teeth</title>
+  <meta name="description" content="日本10年間牙醫販售" />
+  <meta name="keywords" content="toothbrush, 牙刷, MOYO, 模樣, Shirai Takeaki, 白井剛曉, 白井剛暁" />
+  <meta name="author" content="Mariahsiao">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'favicon.png' %>
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/earlyaccess/notosanstc.css">
+  <link rel="stylesheets" type="text/css" href="/clever/css/style.css" />
+  <link rel="stylesheets" type="text/css" href="/clever/css/bootstrap.css" />
+  <link rel="stylesheets" type="text/css" href="/clever/css/font-awesome.css" />
+  <link rel="stylesheets" type="text/css" href="/clever/css/ionicons.css" />
+  <link rel="stylesheets" type="text/css" href="/clever/css/plugin/sidebar-menu.css" />
+  <link rel="stylesheets" type="text/css" href="/clever/css/plugin/animate.css" />
+  <link rel="stylesheets" type="text/css"  href="clever/css/jquery-ui.css" />
 </head>
+
 <body>
 
   <div class="container">
     <%= render "common/navbar" %>
     <%= notice_message %>
     <%= yield %>
+    <%= render "common/footer" %>
   </div>
 
 </body>

@@ -13,7 +13,17 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require bootstrap/dropdown
-//= require bootstrap/alert
-//= require_tree .
+//= require clever/bootstrap.min
+//= require clever/contact-form
+//= require clever/jquery-1.11.2.min
+//= require clever/jquery-ui.min
+//= require clever/jquery.easing
+//= require clever/jquery.singlePageNav
+//= require clever/map
+//= require clever/navigation
+//= require clever/revolution-slider
+//= require clever/script
+//= require clever/theme
+//= require clever/plugin/smoothproducts
+
 

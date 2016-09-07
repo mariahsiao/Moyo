@@ -1,27 +1,32 @@
 <div class="row">
   <div class="col-md-12">
 
+
+    <!-- 清空購物車按鈕 -->
     <%= link_to("清空購物車", clean_carts_path,
-                method: :delete, class: "pull-right",
-                style: "text-decoration: underline;",
+                method: :delete, class: "btn btn-md btn-black pull-right",
+                style: "font-color: white font-weight:bold",
                 data: { confirm: "確定要清空整個購物車嗎？ "}) %>
+    <!-- 清空購物車按鈕結束 -->
 
     <h2>購物車</h2>
 
-    <table class="table table-bordered">
+    <!-- 購物車表單 -->
+    <table class="table checkout table-border">
       <thead>
-        <tr>
-          <th colspan="2">商品資訊</th>
-          <th>單價</th>
-          <th>數量</th>
-          <th>操作選項</th>
+        <tr class="gray-bg">
+          <th class="hidden-md"></th>
+          <th style="text-align: center">商品資訊</th>
+          <th class="hidden-xs" style="text-align: center">單價</th>
+          <th style="text-align: center">數量</th>
+          <th style="text-align: center">操作選項</th>
         </tr>
       </thead>
       <tbody>
 
         <% current_cart.items.each do |product| %>
           <tr>
-            <td>
+            <td class="hidden-md">
               <%= link_to product_path(product) do %>
                 <% if product.photo.present? %>
                   <%= image_tag(product.photo.image.thumb.url, class: "thumbnail") %>
@@ -31,21 +36,21 @@
               <% end %>
             </td>
             <td>
-              <%= link_to(product.title, product_path(product)) %>
+              <h5><%= link_to(product.title, product_path(product)) %></h5>
             </td>
-            <td>
-              <%= product.price %>
+            <td class="hidden-xs" style="text-align: center">
+              <h6><%= product.price %></h6>
             </td>
-            <td>
+            <td class="hidden-md" style="text-align: center">
               <% item = current_cart.find_cart_item(product) %>
               <%= form_for item, url: item_path(product) do |f| %>
                 <%= f.select :quantity, 1..product.quantity %>
-                <%= f.submit "更新", data: {disable_with: "Submitting..."} %>
+                <%= f.submit "更新", class: "btn btn-md btn-black",style: "font-color: white font-weight:bold", data: {disable_with: "Submitting..."} %>
               <% end %>
             </td>
             <td>
               <%= link_to item_path(product), method: :delete do %>
-                <i class="fa fa-trash"></i>
+                <i class="fa fa-times-circle"></i>
               <% end %>
             </td>
           </tr>
@@ -53,6 +58,7 @@
 
       </tbody>
     </table>
+    <!-- 購物車表單結束 -->
 
     <br>
 

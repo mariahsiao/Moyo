@@ -1,26 +1,68 @@
-<div class="row">
-  <div class="col-md-6">
-    <% if @product.photo.present? %>
-      <%= image_tag(@product.photo.image.medium.url, class: "thumbnail") %>
-    <% else %>
-      <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
-    <% end %>
-  </div>
-  <div class="col-md-6">
-    <h2> <%= @product.title %> </h2>
-    <div style="height:200px;">
-      <p>
-        <%= @product.description %>
-      </p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mb-sm-60">
+      <!-- shop item -->
+      <div class="shop-detail-item">
+        <!-- item jimages -->
+        <div class="sp-wrap">
+          <% if @product.photo.present? %>
+            <%= image_tag(@product.photo.image.medium.url, class: "thumbnail") %>
+          <% else %>
+            <%= image_tag("http://placehold.it/480x720&text=No Pic", class: "thumbnail") %>
+          <% end %>
+        </div>
+        <!-- end item images -->
+        <!-- item zoom -->
+        <!-- <div class="sp-full-screen"> <a class="cbox-gallary" href="#"> <i class="fa fa-search-plus"></i>Zoom</a> </div> -->
+        <!-- end item zoom -->
+      </div>
     </div>
-    <div> 數量： <%= @product.quantity %> </div>
-    <div class="product-price"> $ <%= @product.price %> </div>
-    <div class="pull-right">
-      <% if @product.quantity > 0 %>
-        <%= link_to("心動不如馬上行動", add_to_cart_product_path(@product), method: :post, class: "btn btn-lg btn-danger") %>
-      <% else %>
-        已銷售一空，無法購買
-      <% end %>
+
+    <div class="col-md-6">
+      <div class="shop-detail-info">
+        <h2> <%= @product.title %> </h2>
+        <div class="shop-item-price mtb-15 ptb-15"> <span> $ <%= @product.price %> </span>
+        </div>
+        <hr>
+        <p class="project-detial-block ptb-15">
+          <%= @product.description %>
+        </p>
+      </div>
+        <ul class="project-detial-block ptb-15">
+          <li>
+            <p>
+              <strong class="dark-color">尺寸：</strong><span>柄／168mm，刷毛／8.6×21mm</span>
+            </p>
+          </li>
+          <li>
+            <p>
+              <strong class="dark-color">材質：</strong><span>柄／聚苯乙烯，刷毛／PBT</span>
+            </p>
+          </li>
+          <li>
+            <p>
+              <strong class="dark-color">耐熱溫度：</strong><span> 80℃ </span>
+            </p>
+          </li>
+          <li>
+            <p>
+              <strong class="dark-color">Made In Japan 日本製</strong>
+            </p>
+          </li>
+        </ul>
+
+        <div class="cart-box">
+          <label for="qty">數量：</label>
+          <input class="number" name="qty" value="1" class="input-lg" required="required"> <span>剩餘數量：<%= @product.quantity %> </span> </input>
+        </div>
+
+        <div class="btn btn-lg btn-black form-full">
+          <% if @product.quantity > 0 %>
+              <%= link_to("心動不如馬上行動", add_to_cart_product_path(@product), method: :post, class: "fa fa-shopping-cart left font-color: white font-weight:bold") %>
+            <% else %>
+              已銷售一空，無法購買
+            <% end %>
+        </div>
     </div>
   </div>
 </div>

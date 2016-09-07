@@ -1,52 +1,71 @@
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">MOYO</a>
-    </div>
+<nav class="navbar navbar-fixed-top" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="wrapper">
+    <div class="header header-light">
+      <div class="container header-inner">
+        <div class="navbar-brand" href="/">
+            <%= link_to(root_path) do %>
+              <%= image_tag("MOYO.jpg", alt: "logo", style: "width:150px;height:50px") %>
+            <% end %>
+        </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active">
-          <%= link_to("Products", products_path) %>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <%= link_to carts_path do %>
-            購物車 <i class="fa fa-shopping-cart"> </i> ( <%= render_cart_items_count(current_cart) %> )
-          <% end %>
-        </li>
+          <div class="side-menu-btn">
+            <ul>
+              <li class="cart">
+                <%= link_to carts_path do %>
+                  <i class="fa fa-shopping-cart"></i>
+                    <div class="cart-notification-wrap">
+                        <span class="cart-notification">
+                            <%= render_cart_items_count(current_cart) %>
+                        </span>
+                    </div>
+                <% end %>
+              </li>
+              <li class= "nav-bar-icon">
+                <a class="menu-siderbar-list-icon" class="nav-bar-icon"><span></span></a>
+                  <% if !current_user %>
+                    <li> <%= link_to("登入", new_user_session_path) %> </li>
+                  <% else %>
+                    <li class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="#" >
+                      Hi, <%= current_user.name %>
+                        <span class="caret"></span>
+                      </a>
+                      <ul class="dropdown-menu" role="menu" >
 
-        <% if !current_user %>
-          <li> <%= link_to("登入", new_user_session_path) %> </li>
-        <% else %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Hi, <%= current_user.name %>
-              <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <% if current_user.admin? %>
-                <li>
-                  <%= link_to("管理者選單", admin_products_path) %>
-                </li>
-              <% end %>
-              <li>
-                <%= link_to("個人訂單列表", account_orders_path) %>
-              </li>
-              <li>
-                <%= link_to("帳號設定", edit_user_registration_path) %>
-              </li>
-              <li>
-                <%= link_to("登出", destroy_user_session_path, method: :delete ) %>
+                        <% if current_user.admin? %>
+                          <li>
+                            <%= link_to("管理者選單", admin_products_path) %>
+                          </li>
+                        <% end %>
+
+                        <li>
+                          <%= link_to("個人訂單列表", account_orders_path) %>
+                        </li>
+                        <li>
+                          <%= link_to("帳號設定", edit_user_registration_path) %>
+                        </li>
+                        <li>
+                          <%= link_to("登出", destroy_user_session_path, method: :delete ) %>
+                        </li>
+
+                      </ul>
+                    </li>
+                  <% end %>
+
               </li>
             </ul>
-          </li>
-        <% end %>
+          </div>
 
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li> <%= link_to("About", "#") %> </li>
+              <li> <%= link_to("Shop", products_path) %> </li>
+            </ul>
+          </div>
+      </div>
+    </div>
+  </div>
 </nav>
+

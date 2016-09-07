@@ -1,14 +1,45 @@
-<div class="row">
-  <% @products.each do |product| %>
-    <div class="col-xs-6 col-md-3">
-      <%= link_to product_path(product) do %>
-        <% if product.photo.present? %>
-          <%= image_tag(product.photo.image.thumb.url, class: "thumbnail") %>
-        <% else %>
-          <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
-        <% end %>
-      <% end %>
-      <%= product.title %> $ <%= product.price %>
-    </div>
-  <% end %>
-</div>
+
+  <!-- shop item -->
+  <div class="row container-grid" style="position: relative; height: 2343px;">
+    <!-- shop images -->
+    <% @products.each do |product| %>
+      <div class="nf-item col-md-6 col-sm-6 col-xs-12 mb-25">
+        <div class="item-box">
+          <div class="shop-item">
+            <div class="item-img">
+              <%= link_to product_path(product) do %>
+                <% if product.photo.present? %>
+                  <%= image_tag(product.photo.image.large.url, class: "thumbnail") %>
+                <% else %>
+                  <%= image_tag("http://placehold.it/480x720&text=No Pic", class: "thumbnail") %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+
+          <!-- <div class="item-mask">
+            <div class="item-mask-detail">
+              <div class="item-mask-detail-ele">
+                <a class="btn btn-line-xs btn-white-line">
+                  <i class="fa fa-shopping-cart">
+                  </i>
+                  加入購物車
+                </a>
+              </div>
+            </div>
+          </div> -->
+
+          <div class="shop-item-info">
+            <a href="#products/show">
+              <%= product.title %>
+            </a>
+            <div class="shop-item-price">
+              <span> $ <%= product.price %> </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+
