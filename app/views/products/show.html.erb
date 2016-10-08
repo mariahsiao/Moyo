@@ -25,7 +25,7 @@
         </div>
         <hr>
         <p class="project-detial-block ptb-15">
-          <%= @product.description %>
+          <%= simple_format(@product.description) %>
         </p>
       </div>
         <ul class="project-detial-block ptb-15">
@@ -49,12 +49,19 @@
               <strong class="dark-color">Made In Japan 日本製</strong>
             </p>
           </li>
+          <li>
+            <p>
+              <strong class="dark-color">運費$65元; 三件(含)以上商品免運費</strong>
+            </p>
+          </li>
         </ul>
 
-        <div class="cart-box">
+        <!-- <div class="cart-box">
           <label for="qty">數量：</label>
           <input class="number" name="qty" value="1" class="input-lg" required="required"> <span>剩餘數量：<%= @product.quantity %> </span> </input>
-        </div>
+        </div> -->
+
+        <br>
 
         <div class="btn btn-lg btn-black form-full">
           <% if @product.quantity > 0 %>
