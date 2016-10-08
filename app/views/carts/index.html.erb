@@ -62,23 +62,18 @@
 
     <br>
 
-    <div class="roject-detial-block ptb-15" style="pull-right">
-
-
-        <% if @current_cart.item_quantity <= 3 %>
-          <li>
-            <p>
-              <strong class="dark-color">運費</strong><span>$ 65元</span>
-            </p>
-          </li>
+    <div class="roject-detial-block ptb-15">
+      <span class="pull-right">
+        <% if current_cart.total_quantity <= 2 %>
+          <p>
+            <strong class="dark-color">運費</strong><span>$ 65元</span>
+          </p>
         <% else %>
-          <li>
-            <p>
-              <strong class="dark-color">運費</strong><span>三件(含)以上免運費</span>
-            </p>
-          </li>
+          <p>
+            <strong class="dark-color">運費</strong><span>三件(含)以上免運費</span>
+          </p>
         <% end %>
-
+      </span>
     </div>
     <br>
 

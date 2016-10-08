@@ -12,6 +12,16 @@ class Cart < ActiveRecord::Base
     ci.save
   end
 
+  def total_quantity
+    quantity = 0
+
+    cart_items.each do |cart_item|
+      quantity += cart_item.quantity
+    end
+
+    return quantity
+  end
+
   def total_price
     sum = 0
     quantity = 0
