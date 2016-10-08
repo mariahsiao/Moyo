@@ -14,9 +14,15 @@ class Cart < ActiveRecord::Base
 
   def total_price
     sum = 0
+    quantity = 0
 
     cart_items.each do |cart_item|
+      quantity += cart_item.quantity
       sum = sum + (cart_item.product.price * cart_item.quantity) #+ shippingcost
+    end
+
+    if quantity <= 3
+      sum = sum + 65
     end
 
     sum

@@ -62,6 +62,27 @@
 
     <br>
 
+    <div class="roject-detial-block ptb-15" style="pull-right">
+
+
+        <% if @current_cart.item_quantity <= 3 %>
+          <li>
+            <p>
+              <strong class="dark-color">運費</strong><span>$ 65元</span>
+            </p>
+          </li>
+        <% else %>
+          <li>
+            <p>
+              <strong class="dark-color">運費</strong><span>三件(含)以上免運費</span>
+            </p>
+          </li>
+        <% end %>
+
+    </div>
+    <br>
+
+
     <div class="total clearfix">
       <span class="pull-right">
         <span> 總計 <%= render_cart_total_price(current_cart) %> NTD </span>
