@@ -57,7 +57,7 @@ class Order < ActiveRecord::Base
       transitions form: :shipped,       to: :good_returned
     end
 
-    event :cancell_order do
+    event :cancel_order do
       transitions form: [:order_placed, :paid], to: :order_cancelled
     end
   end
